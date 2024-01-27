@@ -5,8 +5,8 @@ import { HomecardComponent } from './components/home/homecard/homecard.component
 import { DetailsComponent } from './components/details page/details/details.component';
 
 const routes: Routes = [
-  {path: '', component: SigninComponent },
-  {path: 'details', component: DetailsComponent}
+  {path: '', redirectTo : 'signin', pathMatch: 'full'},
+  {path: '', component: SigninComponent}
 ];
 
 @NgModule({
