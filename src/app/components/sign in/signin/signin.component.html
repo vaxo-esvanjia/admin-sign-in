@@ -1,4 +1,4 @@
-<div [style.display]="wrongUser" class="wrongUser">
+<div *ngIf="wrongUser" class="wrongUser">
   <h5>Username or password is incorrect</h5>
 </div>
 <div class="signin">

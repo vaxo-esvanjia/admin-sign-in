@@ -12,42 +12,31 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent implements OnInit {
   myusername:string = ""
-  wrongUser:string= 'none'
-  constructor(private userService: UserService, private router: Router) { }
-  usernameArr:any
+  wrongUser:boolean= false
+  constructor(private userService: UserService, private router: Router) { 
+ 
+  }
+ 
   routerLink:string = ''
   ngOnInit(): void {
     
   }
   
   submit(){
-    console.log(this.myusername)
+    
     this.userService.getUser().subscribe(usernames =>{
-      usernames.map((i: any)=>{
+      usernames.some((i:any)=>{
        
-        if(this.myusername==i.username){
-          this.wrongUser = "none"
+        if(i.username==this.myusername){
+          this.wrongUser = false
+          return true
         }
         else{
-          this.wrongUser = "block"
+          this.wrongUser = true
+          return false
         }
       })
-      // for (let i of this.usernameArr){
-      //   console.log(i)
-      //   if(this.username===i.username){
-      //     console.log(i)
-      //     this.wrongUser = "none"
-      //     this.router.navigateByUrl('/homecard')
-      //   }
-      //   // else if(this.username!==i.username){
-      //   //   this.wrongUser = 'block'
-      //   //   console.log(this.wrongUser)
-      //   // }
-      //   // if(this.username!==i.username){
-      //   //   this.wrongUser = "block"
-      //   // }
-   
-      // }
+
       
     })
 
