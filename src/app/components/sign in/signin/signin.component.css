@@ -1,0 +1,27 @@
+.signin{
+    width: 50%;
+    margin: auto;
+    margin-top: 150px;
+    border: 1px solid gray;
+    
+    box-sizing: border-box;
+}
+.signinhead{
+    padding: 15px;
+    width: 100%;
+    background-color: rgb(221, 221, 221);
+    height: auto;
+    border-bottom: 1px solid gray;
+}
+.signinform{
+    padding: 30px;
+}
+.wrongUser{
+    width: 50%;
+    padding: 15px;
+    box-sizing: border-box;
+    color: rgb(163, 17, 17);
+   
+    margin: auto;
+    background-color: rgb(230, 140, 140);
+}
