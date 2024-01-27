@@ -6,7 +6,8 @@ import { DetailsComponent } from './components/details page/details/details.comp
 
 const routes: Routes = [
   {path: '', redirectTo : 'signin', pathMatch: 'full'},
-  {path: '', component: SigninComponent}
+  {path: '', component: SigninComponent},
+  {path: 'homecard', component:HomecardComponent}
 ];
 
 @NgModule({

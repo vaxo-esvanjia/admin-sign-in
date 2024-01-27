@@ -1,0 +1,47 @@
+.mycardcontent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.id{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.letterMother{
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+
+}
+h1{
+    font-size: 80px !important;
+    font-weight: bold;
+}
+.social{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.soc1,.soc2,.soc3{
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    background-color: rgb(120, 120, 120);
+    margin: 10px;
+}

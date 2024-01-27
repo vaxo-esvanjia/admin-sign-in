@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { FormControl,FormsModule,NgModel } from '@angular/forms';
 import { UserService } from 'src/app/core/service/user.service';
 import { environment } from 'src/environments/environment';
 import { Users } from '../../details page/details/details.model';
 import { Router } from '@angular/router';
-
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -29,7 +31,9 @@ export class SigninComponent implements OnInit {
        
         if(i.username==this.myusername){
           this.wrongUser = false
+          this.router.navigate(['homecard'])
           return true
+          
         }
         else{
           this.wrongUser = true
