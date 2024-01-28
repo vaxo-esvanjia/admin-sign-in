@@ -1,5 +1,5 @@
 import { Component, Injectable, OnInit } from '@angular/core';
-import { FormControl,FormsModule,NgModel } from '@angular/forms';
+import {FormBuilder,FormGroup,Validators, FormControl,FormsModule,NgModel } from '@angular/forms';
 import { UserService } from 'src/app/core/service/user.service';
 import { environment } from 'src/environments/environment';
 import { Users } from '../../details page/details/details.model';
@@ -13,31 +13,43 @@ import { Router } from '@angular/router';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  myusername:string = ""
+  myusername= new FormControl
   wrongUser:boolean= false
-  constructor(private userService: UserService, private router: Router) { 
+  myForm!: FormGroup;
+  password:string=""
+  isFormValid: boolean = false;
+  constructor(private userService: UserService, private router: Router, private fb: FormBuilder) { 
  
   }
+  
  
   routerLink:string = ''
   ngOnInit(): void {
-    
+    this.myForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    })
+    this.myForm.valueChanges.subscribe(() => {
+      this.isFormValid = this.myForm.valid;
+    });
   }
   
   submit(){
-    
+  
     this.userService.getUser().subscribe(usernames =>{
       usernames.some((i:any)=>{
        
-        if(i.username==this.myusername){
+        if(i.username==this.myForm.get('username')?.value){
           this.wrongUser = false
           this.router.navigate(['homecard'])
+          
           return true
           
         }
         else{
           this.wrongUser = true
           return false
+          
         }
       })
 

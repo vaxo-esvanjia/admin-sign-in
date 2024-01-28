@@ -5,17 +5,20 @@
     <div class="signinhead">
         <h3>Angular Sign In</h3>
     </div>
-<form class="signinform" >
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Username</label>
-      <input name="username" [(ngModel)]="myusername" placeholder="Username" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+<form class="signinform" [formGroup]="myForm"  >
+    <div class="mb-3" >
+      <label for="username" class="form-label">Username</label>
+      <input name="username" formControlName="username" [formControl]="myusername" placeholder="Username"  type="text" class="form-control" id="username" >
       
     </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input name="password" placeholder="Password" type="password" class="form-control" id="exampleInputPassword1">
+    <div class="mb-3" >
+      <label for="password" class="form-label">Password</label>
+      <input name="password" formControlName="password" placeholder="Password" type="password" class="form-control" id="password"  required >
+      <div class="requiredText" *ngIf="myForm.get('password')?.hasError('required') && myForm.get('password')?.touched">
+        password is required
+      </div>
     </div>
 
-    <button  (click)="submit()" type="submit" class="btn btn-primary">submit</button>
+    <button [disabled]="!isFormValid" (click)="submit()" type="submit" class="btn btn-primary">submit</button>
   </form>
 </div>
