@@ -6,7 +6,7 @@
         <td>Email</td>
         <td>Website</td>
     </tr>
-    <tr *ngFor="let i of usersArr">
+    <tr #targetDiv *ngFor="let i of usersArr" [class.selected]="isRowSelected(i)" (contextmenu)="showContextMenu($event, i)">
         <th>{{i.id}}</th>
         <th>{{i.name}}</th>
         <th>{{i.username}}</th>
@@ -15,3 +15,7 @@
     </tr>
 
 </table>
+<div *ngIf="selectedUser,hidden" class="contextMenu">
+    <h5 (click)="deleteUser()">Delete</h5>
+    <h5 (click)="goToDetails()">Details</h5>
+</div>

@@ -15,6 +15,7 @@ export class UserService {
     
     getUser(): Observable<any>{
         return this.http.get(this.baseUrl+'users')
-        console.log()
+        
     }
+    
 }

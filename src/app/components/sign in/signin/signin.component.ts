@@ -38,7 +38,9 @@ export class SigninComponent implements OnInit {
   
     this.userService.getUser().subscribe(usernames =>{
       usernames.some((i:any)=>{
-       
+        if(this.myForm.get('username')?.value=='admin' && this.myForm.get('password')?.value=='admin'){
+          this.router.navigate(['details'])
+        }
         if(i.username==this.myForm.get('username')?.value){
           this.wrongUser = false
           this.router.navigate(['homecard'])
