@@ -1,15 +1,15 @@
 <div class="card text-bg-dark mycard">
     <img src="assets/images/background.jpeg" class="card-img" alt="...">
     <div class="id">
-      <span>id</span>
+      <span>{{selectedUser?.id}}</span>
     </div>
     <div class="card-img-overlay mycardcontent">
       <div class="letterMother">
-        <h1>C</h1>
+        <h1>{{selectedUser?.username[0]}}</h1>
         
       </div>
-      <p>username</p>
-      <span>email</span>
+      <p>{{selectedUser?.username}}</p>
+      <span>{{selectedUser?.email}}</span>
     </div>
     <div class="social">
       <div class="soc1">

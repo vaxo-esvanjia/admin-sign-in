@@ -39,7 +39,7 @@ export class DetailsComponent implements OnInit {
     event.preventDefault();
     this.selectedUser = user;
     console.log("adsddsa", event)
-  
+    this.userService.setSelectedUser(user)
   }
   
   

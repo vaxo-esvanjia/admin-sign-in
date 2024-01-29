@@ -7,11 +7,11 @@ import { UserService } from 'src/app/core/service/user.service';
   styleUrls: ['./homecard.component.css']
 })
 export class HomecardComponent implements OnInit {
-
-  constructor() { }
+  selectedUser:any
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    
+    this.selectedUser = this.userService.getSelectedUser()
   }
   
 }

@@ -8,14 +8,19 @@ import { Observable, Subject } from "rxjs";
     providedIn: 'root'
 })
 export class UserService {
-
+    selectedUser:Users | undefined
     baseUrl = environment.baseUrl
     constructor (private http: HttpClient){}
     users:Users[]=[]
     
     getUser(): Observable<any>{
-        return this.http.get(this.baseUrl+'users')
+        return this.http.get<Users[]>(this.baseUrl+'users')
         
     }
-    
+    setSelectedUser(user:Users){
+        this.selectedUser = user
+    }
+    getSelectedUser(){
+        return this.selectedUser
+    }
 }
