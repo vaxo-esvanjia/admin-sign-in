@@ -9,5 +9,29 @@ tr.selected {
 .contextMenu{
     border: 1px solid gray;
     position: absolute;
+    background-color: white;
+    color: black;
+    z-index: 100;
+  
     
+}
+.tableMother{
+    width: 70%;
+    padding: 10px;
+    margin: auto;
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin-top: 100px;
+}
+table{
+    width: 100%;
+    margin: auto;
+}
+h5{
+    margin: 5px;
+}
+h5:hover{
+    transition: 0.3s;
+   color: red;
+    background-color: rgb(196, 196, 196);
 }

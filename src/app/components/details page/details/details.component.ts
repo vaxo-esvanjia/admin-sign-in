@@ -11,8 +11,7 @@ import { Route, Router } from '@angular/router';
 export class DetailsComponent implements OnInit {
   usersArr: Users[] = [];
   selectedUser: Users | undefined;
- 
-
+ contextMenuStyle:any = {}
   constructor(private userService: UserService, private router:  Router) { }
 
   ngOnInit(): void {
@@ -20,25 +19,34 @@ export class DetailsComponent implements OnInit {
       this.usersArr = users;
       console.log(this.usersArr);
     });
-    document.addEventListener('click', this.onDocumentClick.bind(this));
-
+    
+     document.addEventListener('click', this.onDocumentClick.bind(this));
+    
   }
-  hidden:boolean=false
+  // hidden:boolean=false
   onDocumentClick(event: MouseEvent) {
     // Check if the click is outside the specific div
     if (!this.targetDiv.nativeElement.contains(event.target)) {
       // Update the click count
-      this.hidden=true
+      this.closeContextMenu()
       console.log('Click outside div. Count:',);
     }
   }
-
+  closeContextMenu(){
+    this.contextMenuStyle = {
+      'display': 'none'
+    }
+  }
   @ViewChild('targetDiv')
   targetDiv!: ElementRef<any>;
   showContextMenu(event: MouseEvent, user: Users): void {
     event.preventDefault();
     this.selectedUser = user;
-    console.log("adsddsa", event)
+    this.contextMenuStyle = {
+      'display': 'block',
+      'left.px': event.clientX,
+      'top.px': event.clientY
+    }
     this.userService.setSelectedUser(user)
   }
   

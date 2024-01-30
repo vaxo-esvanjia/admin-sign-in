@@ -1,3 +1,5 @@
+<div class="tableMother">
+    <h1>Users List</h1>
 <table >
     <tr>
         <td>ID</td>
@@ -15,7 +17,9 @@
     </tr>
 
 </table>
-<div *ngIf="selectedUser,hidden" class="contextMenu">
+<div [ngStyle]="contextMenuStyle" *ngIf="selectedUser"  class="contextMenu">
     <h5 (click)="deleteUser()">Delete</h5>
-    <h5 (click)="goToDetails()">Details</h5>
+    <hr>
+    <h5  (click)="goToDetails()">Details</h5>
+</div>
 </div>
