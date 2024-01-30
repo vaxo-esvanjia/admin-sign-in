@@ -2,11 +2,11 @@
     <h1>Users List</h1>
 <table >
     <tr>
-        <td>ID</td>
-        <td>Name</td>
-        <td>Username</td>
-        <td>Email</td>
-        <td>Website</td>
+        <td><strong>ID</strong></td>
+        <td><strong>Name</strong></td>
+        <td><strong>Username</strong></td>
+        <td><strong>email</strong></td>
+        <td><strong>Website</strong></td>
     </tr>
     <tr #targetDiv *ngFor="let i of usersArr" [class.selected]="isRowSelected(i)" (contextmenu)="showContextMenu($event, i)">
         <th>{{i.id}}</th>

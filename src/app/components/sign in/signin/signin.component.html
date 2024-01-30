@@ -13,8 +13,8 @@
     </div>
     <div class="mb-3" >
       <label for="password" class="form-label">Password</label>
-      <input name="password" formControlName="password" placeholder="Password" type="password" class="form-control" id="password"  required >
-      <div class="requiredText" *ngIf="myForm.get('password')?.hasError('required') && myForm.get('password')?.touched">
+      <input name="password" formControlName="password" placeholder="Password" type="password" class="form-control password" id="password"  required >
+      <div  class="requiredText" *ngIf="myForm.get('password')?.hasError('required') && myForm.get('password')?.touched">
         password is required
       </div>
     </div>

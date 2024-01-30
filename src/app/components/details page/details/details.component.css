@@ -16,16 +16,19 @@ tr.selected {
     
 }
 .tableMother{
-    width: 70%;
+    width: 80%;
     padding: 10px;
     margin: auto;
     border: 1px solid black;
     box-sizing: border-box;
     margin-top: 100px;
+    overflow-x: auto;
 }
 table{
     width: 100%;
     margin: auto;
+    border-collapse: collapse;
+ 
 }
 h5{
     margin: 5px;

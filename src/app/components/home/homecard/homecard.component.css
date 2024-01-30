@@ -1,5 +1,13 @@
+
+.mycard{
+    width: 500px;
+    margin: auto;
+    margin-top: 100px;
+    border: none;
+}
 .mycardcontent{
     display: flex;
+    
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -13,6 +21,8 @@
     justify-content: center;
     align-items: center;
     position: absolute;
+    margin-top: -10px;
+    margin-left: 5px;
 }
 .letterMother{
     width: 100px;
@@ -44,4 +54,16 @@ h1{
     height: 30px;
     background-color: rgb(120, 120, 120);
     margin: 10px;
+}
+@media screen and (max-width:550px) {
+    .mycard{
+        width: 280px;
+    }
+    .letterMother{
+        width: 60px;
+        height:60px;
+    }
+    h1{
+        font-size: 40px !important;
+    }
 }
