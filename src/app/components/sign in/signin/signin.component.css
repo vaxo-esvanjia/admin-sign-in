@@ -1,7 +1,7 @@
 .signin{
-    width: 50%;
+    width: 520px;
     margin: auto;
-    margin-top: 150px;
+    margin-top: 70px;
     border: 1px solid gray;
     
     box-sizing: border-box;
@@ -17,14 +17,26 @@
     padding: 30px;
 }
 .wrongUser{
-    width: 50%;
+    width: 520px;
     padding: 15px;
+    margin: auto;
+    margin-top: 100px;
     box-sizing: border-box;
     color: rgb(163, 17, 17);
    
-    margin: auto;
+    
     background-color: rgb(230, 140, 140);
 }
 .requiredText{
     color: red;
+}
+.mybtn:hover{
+    background-color: rgb(128, 0, 255);
+    transition: 0.4s;
+}
+
+@media screen and (max-width:550px) {
+    .signin{
+        width: 260px;
+    }
 }

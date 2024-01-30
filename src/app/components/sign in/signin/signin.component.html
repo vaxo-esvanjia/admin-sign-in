@@ -1,5 +1,5 @@
 <div *ngIf="wrongUser" class="wrongUser">
-  <h5>Username or password is incorrect</h5>
+  <h6>Username or password is incorrect</h6>
 </div>
 <div class="signin">
     <div class="signinhead">
@@ -19,6 +19,6 @@
       </div>
     </div>
 
-    <button [disabled]="!isFormValid" (click)="submit()" type="submit" class="btn btn-primary">submit</button>
+    <button [disabled]="!isFormValid" (click)="submit()" type="submit" class="btn btn-primary mybtn">Sign In</button>
   </form>
 </div>
