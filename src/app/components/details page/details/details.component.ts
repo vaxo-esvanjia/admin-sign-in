@@ -2,16 +2,28 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular
 import { Users } from './details.model';
 import { UserService } from 'src/app/core/service/user.service';
 import { Route, Router } from '@angular/router';
-
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+export class MyHammerConfig extends HammerGestureConfig {
+  override overrides = {
+    press: { time: 200 }, // Set the press time for long press
+  };
+}
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css']
+  styleUrls: ['./details.component.css'],
+  providers:[
+    {
+      provide:HAMMER_GESTURE_CONFIG,
+      useClass: MyHammerConfig,
+    },
+  ],
 })
 export class DetailsComponent implements OnInit {
   usersArr: Users[] = [];
   selectedUser: Users | undefined;
  contextMenuStyle:any = {}
+ private longPressTimeout:any
   constructor(private userService: UserService, private router:  Router) { }
 
   ngOnInit(): void {
@@ -23,12 +35,13 @@ export class DetailsComponent implements OnInit {
      document.addEventListener('click', this.onDocumentClick.bind(this));
     
   }
-  // hidden:boolean=false
+  
   onDocumentClick(event: MouseEvent) {
-    // Check if the click is outside the specific div
+    // Check if the click is outside the table
     if (!this.targetDiv.nativeElement.contains(event.target)) {
-      // Update the click count
+      
       this.closeContextMenu()
+      clearTimeout(this.longPressTimeout)
       console.log('Click outside div. Count:',);
     }
   }
@@ -41,15 +54,19 @@ export class DetailsComponent implements OnInit {
   targetDiv!: ElementRef<any>;
   showContextMenu(event: MouseEvent, user: Users): void {
     event.preventDefault();
-    this.selectedUser = user;
-    this.contextMenuStyle = {
-      'display': 'block',
-      'left.px': event.clientX,
-      'top.px': event.clientY
-    }
-    this.userService.setSelectedUser(user)
+    clearTimeout(this.longPressTimeout)
+    this.longPressTimeout=setTimeout(()=>{
+      this.selectedUser = user
+      this.selectedUser = user;
+      this.contextMenuStyle = {
+        'display': 'block',
+        'left.px': event.clientX,
+        'top.px': event.clientY
+      }
+      this.userService.setSelectedUser(user)
+    },200)
+
   }
-  
   
   isRowSelected(user: Users): boolean {
     
