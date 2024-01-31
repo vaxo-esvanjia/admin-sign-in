@@ -5,7 +5,7 @@ import { Route, Router } from '@angular/router';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 export class MyHammerConfig extends HammerGestureConfig {
   override overrides = {
-    press: { time: 1000 }, // Set the press time for long press
+    press: { time: 200 }, // Set the press time for long press
   };
 }
 @Component({
@@ -64,7 +64,7 @@ export class DetailsComponent implements OnInit {
         'top.px': event.clientY
       }
       this.userService.setSelectedUser(user)
-    },1000)
+    },200)
 
   }
   
