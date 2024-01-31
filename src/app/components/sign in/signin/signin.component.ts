@@ -27,7 +27,8 @@ export class SigninComponent implements OnInit {
       this.isFormValid = this.myForm.valid;
     });
   }
-  
+  // sign in button click which checks if username
+  //and password is correct and go to the details page
   submit(){
     this.userService.getUser().subscribe(usernames =>{
       usernames.some(()=>{

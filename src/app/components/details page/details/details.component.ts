@@ -3,6 +3,7 @@ import { Users } from './details.model';
 import { UserService } from 'src/app/core/service/user.service';
 import { Route, Router } from '@angular/router';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+
 export class MyHammerConfig extends HammerGestureConfig {
   override overrides = {
     press: { time: 200 }, // Set the press time for long press
@@ -29,7 +30,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUser().subscribe(users => {
       this.usersArr = users;
-      console.log(this.usersArr);
+      
     });
     
      document.addEventListener('click', this.onDocumentClick.bind(this));
@@ -42,7 +43,7 @@ export class DetailsComponent implements OnInit {
       
       this.closeContextMenu()
       clearTimeout(this.longPressTimeout)
-      console.log('Click outside div. Count:',);
+      
     }
   }
   closeContextMenu(){
@@ -81,7 +82,7 @@ export class DetailsComponent implements OnInit {
       this.selectedUser = undefined;
     }
   }
-
+// delete current user
   deleteUser() {
     if (this.selectedUser) {
       // Find the index of the selected user in the array
@@ -95,13 +96,11 @@ export class DetailsComponent implements OnInit {
         // Clear the selected user
         this.selectedUser = undefined;
       }
-    }
-
-      console.log(this.usersArr);
+    }      
   }
+  //from context menu button details click function which
+  //go to the homecard page
   goToDetails(){
-
-
     this.router.navigate(['homecard'])
   }
   

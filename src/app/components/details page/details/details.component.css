@@ -4,7 +4,7 @@ th, td{
     box-sizing: border-box;
 }
 tr.selected {
-    background-color: #e0e0e0; /* Change this to your desired background color for selected rows */
+    background-color: #e0e0e0;
   }
 .contextMenu{
     border: 1px solid gray;
